@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity, Image, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+
 const Login= ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
    const [secureText, setSecureText] = useState(true);
 
- const handleSignIn = () => {
+  const handleSignIn = () => {
     // You can add your authentication logic here
     if (email === '' || password === '') {
       Alert.alert('Please enter your email and password.');

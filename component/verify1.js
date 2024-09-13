@@ -2,31 +2,35 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity, Image, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-const ForgotPassword= ({navigation}) => {
-  const [email, setEmail] = useState('');
+const Verify= ({navigation}) => {
 return (
   <View style={styles.container}>
     <Image
             style={styles.forgotimg}
-        source={require('../assets/forgot.png')}
+        source={require('../assets/verify.png')}
 
     />
-    <Text style={styles.title}>FORGOT PASSWORD</Text>
-    <Text style={styles.description}>Please Enter Your Registered Email To Recieve A Verification Code</Text>
-    <View style={styles.input1}>
-      <Text style={styles.label}>Email</Text>
-      <MaterialIcons name="email" size={24} color="black"/>
-      <TextInput
-      style={styles.inp1}
-        placeholder="@gmail.com"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
-      </View>
+    <Text style={styles.title}>VERIFY YOUR EMAIL</Text>
+        <Text style={styles.description}>Please Enter The 4 Digit Code Sent To</Text>
+        <Text style={styles.demail}>traptipatel23@gmail.com</Text>
+        <View style={styles.box}>
+            <View style={styles.input1}>
+              <Text>1</Text>
+           </View>
+            <View style={styles.input1}>
+              <Text>2</Text>
+        </View>
+            <View style={styles.input1}>
+               <Text>3</Text>
+        </View>
+            <View style={styles.input1}>
+                <Text>4</Text>
+        </View>
+    </View>
+        <Text style={styles.time}>00.00</Text>
+        <Text style={styles.rcode}>Resend Code</Text>
        <Pressable style={styles.bttn}>
-      <Text style={styles.btext}>DONE</Text>
+      <Text style={styles.btext}>VERIFY</Text>
     </Pressable>
     </View>
   );
@@ -43,21 +47,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'left',
      marginBottom: 25,
+    },
+    box: {
+      
   },
   inp1:{
     flex: 1,
     height: 40,
   },
   input1: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    height: 50,
-    borderColor: '#ccc',
-    marginBottom: 30,
-    borderRadius: 100,
-    backgroundColor: '#fff',
+      height: 50,
+      width: '20%',
+      backgroundColor: '#FEA726',
+      borderRadius: 5,
+      borderColor:'#FF3D00',
   },
   description: {
     marginBottom: 40,
@@ -97,4 +100,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ForgotPassword;
+export default Verify;
