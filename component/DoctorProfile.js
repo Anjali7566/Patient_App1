@@ -39,7 +39,7 @@ const DoctorProfileScreen = ({ navigation }) => {
             onPressIn={() => setIsHovered(true)}
             onPressOut={() => setIsHovered(false)}
           >
-            <Image source={require('../assets/Ellipse 8.png')} style={styles.profileImage} />
+            <Image source={require('../assets/Ellipse 10.png')} style={styles.profileImage} />
           </TouchableOpacity>
         </View>
         <View style={styles.informationContainer}>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: 20,
-    paddingTop: 50,
+    paddingTop: 30,
   },
   header: {
     flexDirection: 'row',
@@ -119,12 +119,12 @@ const styles = StyleSheet.create({
   },
   ProfileImageContainer: {
     marginBottom: 20,
-    borderRadius: 100,
+    borderRadius: 60,
     borderColor: '#267DFE',
   },
   profileImage: {
-    width: 100,
-    height: 100,
+    width: 90,
+    height: 90,
   },
   doctorName: {
     fontSize: 18,
@@ -192,6 +192,7 @@ const styles = StyleSheet.create({
     color: '#979797',
   },
   button: {
+    width:'50%',
     marginTop: 30,
     backgroundColor: '#4C97F3',
     paddingVertical: 15,
