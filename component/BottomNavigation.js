@@ -1,11 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons, Ionicons } from 'react-native-vector-icons';
-import MainScreen from './MainScreen';
+import { Image } from 'react-native';
 import Reports from './Reports';
 import Carts from './Helps';
 import Cart from './Cart';
-import { StatusBar } from 'react-native';
+import MainScreenNavigation from './MainScreenNavigation';
+
 
 
 const Tab = createBottomTabNavigator();
@@ -28,14 +29,18 @@ const BottomNavigationBar = () => {
     <>
         <Tab.Navigator screenOptions={screenOptions}>
           <Tab.Screen
-            name="MainScreen"
-            component={MainScreen}
+            name="MainScreenNavigation"
+            component={MainScreenNavigation}
             options={{
               tabBarIcon: ({ focused }) => (
-                <MaterialIcons 
-                name="home" 
-                size={30} 
-                color={focused ? '#4C97F3' : '#8E8E93'}
+                <Image
+                source={require('../assets/Vector (1).png')}
+                resizeMode='contain'
+                style={{
+                  height: 30,
+                  width: 30,
+                  tintColor: focused ? '#4C97F3' : '#000000',
+                }}
                  />
               ),
             }}
@@ -45,10 +50,14 @@ const BottomNavigationBar = () => {
             component={Reports}
             options={{
               tabBarIcon: ({ focused }) => (
-                <MaterialIcons
-                 name="list" 
-                 size={30} 
-                 color={focused ? '#4C97F3' : '#8E8E93'}
+                <Image
+                source={require('../assets/Union.png')}
+                resizeMode='contain'
+                style={{
+                  height: 30,
+                  width: 30,
+                  tintColor: focused ? '#4C97F3' : '#000000',
+                }}
                   />
               ),
             }}
@@ -58,10 +67,14 @@ const BottomNavigationBar = () => {
             component={Carts}
             options={{
               tabBarIcon: ({ focused }) => (
-                <MaterialIcons
-                  name="call"
-                  size={30}
-                  color={focused ? '#4C97F3' : '#8E8E93'}
+                <Image
+                source={require('../assets/Union (1).png')}
+                resizeMode='contain'
+                style={{
+                  height: 30,
+                  width: 30,
+                  tintColor: focused ? '#4C97F3' : '#000000',
+                }}
                 />
               ),
             }}
@@ -71,10 +84,14 @@ const BottomNavigationBar = () => {
             component={Cart}
             options={{
               tabBarIcon: ({ focused }) => (
-                <MaterialIcons 
-                name="shopping-cart" 
-                size={30} 
-                color={focused ? '#4C97F3' : '#8E8E93'}
+                <Image
+                source={require('../assets/Vector (2).png')}
+                resizeMode='contain'
+                style={{
+                  height: 30,
+                  width: 30,
+                  tintColor: focused ? '#4C97F3' : '#000000',
+                }}
                  />
               ),
             }}

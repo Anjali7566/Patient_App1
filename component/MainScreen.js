@@ -65,7 +65,7 @@ const MainScreen = () => {
       </View>
 
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.doctorButton} onPress={() => navigateTo('Doctors')}>
+        <TouchableOpacity style={styles.doctorButton} onPress={() => navigateTo('DoctorListScreen')}>
           <Text style={styles.buttonText}>Doctor</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.labsButton} onPress={() => navigateTo('Labs')}>

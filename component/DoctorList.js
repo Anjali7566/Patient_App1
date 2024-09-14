@@ -22,7 +22,7 @@ const doctors = [
     distance: '26.5 Km',
     fees: '500',
     availability: 'Appointment slot Available',
-    image: require('../assets/Ellipse 8.png'),
+    image: require('../assets/Ellipse 9.png'),
   },
   {
     id: '3',
@@ -42,19 +42,17 @@ const doctors = [
     distance: '26.5 Km',
     fees: '500',
     availability: 'Appointment slot Available',
-    image: require('../assets/Ellipse 8.png'),
+    image: require('../assets/Ellipse 10.png'),
   },
 ];
 
 const DoctorListScreen = ({ navigation }) => {
 
   const handleProfilePress = (doctor) => {
-    // Navigate to Doctor Profile screen
     navigation.navigate('DoctorProfileScreen', { doctor });
   };
 
   const handleBookAppointmentPress = (doctor) => {
-    // Navigate to Booking Screen
     navigation.navigate('BookingScreen', { doctor });
   };
 
@@ -104,13 +102,18 @@ const DoctorListScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+       <View style={styles.header}>
+       <TouchableOpacity onPress={() => navigation.goBack()}>
+          <MaterialIcons name="arrow-back" size={24} color="black" />
+        </TouchableOpacity>
       <Text style={styles.headerTitle}>Our Doctors</Text>
+      </View>
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
           placeholder="Search..."
         />
-        <MaterialIcons name="search" size={26} color="#4CAF50" style={styles.searchicon} />
+        <MaterialIcons name="search" size={26} color="#0A8E8A" style={styles.searchicon} />
       </View>
       <FlatList
         data={doctors}
@@ -139,6 +142,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 50,
   },
+  header:{
+  flexDirection:'row',
+  gap:10,
+  },
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -152,6 +159,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginBottom: 20,
+    borderWidth:1,
+    borderColor:'#0A8E8A',
   },
   searchPlaceholder: {
     marginLeft: 10,
@@ -242,6 +251,9 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     fontWeight: 'bold',
+  },
+  specialistContainer:{
+   marginBottom:70,
   },
   specialistTitle: {
     fontSize: 16,
