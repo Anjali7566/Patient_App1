@@ -26,7 +26,8 @@ return (
       />
       </View>
        <Pressable style={styles.bttn}>
-      <Text style={styles.btext}>DONE</Text>
+      <Text style={styles.btext} onPress={() =>
+        navigation.navigate('Verify')}>DONE</Text>
     </Pressable>
     </View>
   );

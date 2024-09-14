@@ -15,6 +15,9 @@ import Reports from './component/Reports';
 import History from './component/History';
 import Cart from './component/Cart';
 import Profile from './component/Profile';
+import Verify1 from './component/verify1';
+import Verify2 from './component/verify2';
+import Verify3 from './component/verify3';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +28,7 @@ function HomeScreen({ navigation }) {
       <Text style={styles.description}>Communication Between Patients And Medical professional</Text>
       <View style={styles.bttn}>
         <Text style={styles.btext}>Get Started</Text>
-        <Pressable style={styles.bttn1} onPress={() => navigation.navigate('Profile')}>
+        <Pressable style={styles.bttn1} onPress={() => navigation.navigate('Login')}>
           <MaterialIcons name="arrow-forward" size={24} color="white" />
         </Pressable>
       </View>
@@ -38,7 +41,21 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="AppointmentSlip" component={AppointmentSlip} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="Verify" component={Verify} />
+        <Stack.Screen name="Verifycode" component={Verifycode} />
+        <Stack.Screen name="Review1" component={Review1} />
+        <Stack.Screen name="Map" component={Map} />
+        <Stack.Screen name="Reports" component={Reports} />
+        <Stack.Screen name="History" component={History} />
+        <Stack.Screen name="Cart" component={Cart} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="VerifyCode" component={Verify1} />
+        <Stack.Screen name="VerifySuccess" component={Verify2} />
+         <Stack.Screen name="VerifySuccessCode" component={Verify3}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

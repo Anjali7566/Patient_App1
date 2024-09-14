@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, TextInput, StyleSheet ,Text,Pressable,Image} from 'react-native';
 
-const Verify= ({ length, onComplete }) => {
+const Verify= ({ length, onComplete,navigation }) => {
   const [code, setCode] = useState(new Array(length).fill(''));
   const inputs = useRef([]);
 
@@ -90,7 +90,8 @@ const Verify= ({ length, onComplete }) => {
          <Text style={styles.time}>00.00</Text>
         <Text style={styles.rcode}>Resend Code</Text>
        <Pressable style={styles.bttn}>
-      <Text style={styles.btext}>VERIFY</Text>
+      <Text style={styles.btext} onPress={() =>
+        navigation.navigate('VerifyCode')}>VERIFY</Text>
     </Pressable>
             </View>
   );

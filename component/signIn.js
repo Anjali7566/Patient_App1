@@ -7,7 +7,7 @@ const Login= ({navigation}) => {
   const [password, setPassword] = useState('');
    const [secureText, setSecureText] = useState(true);
 
- const handleSignIn = () => {
+ const handleSignIn = ({navigation}) => {
     // You can add your authentication logic here
     if (email === '' || password === '') {
       Alert.alert('Please enter your email and password.');
@@ -61,10 +61,12 @@ return (
         </TouchableOpacity>
       </View>
     <TouchableOpacity onPress={ForgotPassword}>
-        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+        <Text style={styles.forgotPasswordText} onPress={() =>
+        navigation.navigate('ForgotPassword')}>Forgot Password?</Text>
       </TouchableOpacity>
     <Pressable style={styles.bttn} onPress={handleSignIn}>
-      <Text style={styles.btext}>LOGIN</Text>
+      <Text style={styles.btext} onPress={() =>
+        navigation.navigate('AppointmentSlip')}>LOGIN</Text>
     </Pressable>
     <Text style={styles.or}>OR</Text>
     <Text style={styles.lw}>Login with</Text>
@@ -76,7 +78,9 @@ return (
     />
    </TouchableOpacity>
     <TouchableOpacity>
-        <Text style={styles.account}>Don't have an account? <Text style={styles.Registernow}>Register now</Text></Text>
+      <Text style={styles.account}>Don't have an account? <Text style={styles.Registernow} onPress={() =>
+        navigation.navigate('Register')}>Register now</Text> 
+        </Text>
       </TouchableOpacity>
     </View>
   );

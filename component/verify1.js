@@ -30,7 +30,8 @@ return (
         <Text style={styles.time}>00.00</Text>
         <Text style={styles.rcode}>Resend Code</Text>
        <Pressable style={styles.bttn}>
-      <Text style={styles.btext}>VERIFY</Text>
+      <Text style={styles.btext} onPress={() =>
+        navigation.navigate('VerifySuccess')}>VERIFY</Text>
     </Pressable>
     </View>
   );
