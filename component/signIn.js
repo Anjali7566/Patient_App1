@@ -1,90 +1,85 @@
-//import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity, Image, Pressable } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-const Login= ({navigation}) => {
+import { useNavigation } from '@react-navigation/native';
+
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-   const [secureText, setSecureText] = useState(true);
+  const [secureText, setSecureText] = useState(true);
+  const navigation = useNavigation();
 
- const handleSignIn = ({navigation}) => {
-    // You can add your authentication logic here
+  const handleSignIn = () => {
     if (email === '' || password === '') {
       Alert.alert('Please enter your email and password.');
     } else {
       // Placeholder for sign-in logic
       Alert.alert('Sign In Successful', `Welcome back, ${email}!`);
+      navigation.navigate('MainScreen'); // Navigate to the main screen after login
     }
   };
-  const ForgotPassword = () => {
-    Alert("forget password");
-  }
 
   const togglePasswordVisibility = () => {
     setSecureText(!secureText);
   };
-return (
-  <View style={styles.container}>
-    <Image
-            style={styles.loginlogo}
-        source={require('../assets/login.png')}
 
-    />
+  return (
+    <View style={styles.container}>
+      <Image style={styles.loginlogo} source={require('../assets/login.png')} />
       <Text style={styles.title}>LOGIN</Text>
-    <View style={styles.input1}>
-      <Text style={styles.label}>Email</Text>
-      <MaterialIcons name="email" size={24} color="black"/>
-      <TextInput
-      style={styles.inp1}
-        placeholder="@gmail.com"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-    />
+
+      <View style={styles.input1}>
+        <Text style={styles.label}>Email</Text>
+        <MaterialIcons name="email" size={24} color="black" />
+        <TextInput
+          style={styles.inp1}
+          placeholder="@gmail.com"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
       </View>
-    <View style={styles.input2}>
-       <MaterialIcons name="lock-open" size={24} color="black"/>
-      <TextInput
+
+      <View style={styles.input2}>
+        <MaterialIcons name="lock-open" size={24} color="black" />
+        <TextInput
           style={styles.inp2}
-         placeholder="Password"
+          placeholder="Password"
           secureTextEntry={secureText}
           value={password}
           onChangeText={setPassword}
         />
         <TouchableOpacity onPress={togglePasswordVisibility}>
-          <MaterialIcons
-            name={secureText ? 'visibility-off' : 'visibility'}
-            size={24}
-            color="black"
-          />
+          <MaterialIcons name={secureText ? 'visibility-off' : 'visibility'} size={24} color="black" />
         </TouchableOpacity>
       </View>
-    <TouchableOpacity onPress={ForgotPassword}>
-        <Text style={styles.forgotPasswordText} onPress={() =>
-        navigation.navigate('ForgotPassword')}>Forgot Password?</Text>
-      </TouchableOpacity>
-    <Pressable style={styles.bttn} onPress={handleSignIn}>
-      <Text style={styles.btext} onPress={() =>
-        navigation.navigate('AppointmentSlip')}>LOGIN</Text>
-    </Pressable>
-    <Text style={styles.or}>OR</Text>
-    <Text style={styles.lw}>Login with</Text>
-    <TouchableOpacity>
-       <Image
-            style={styles.logo}
-        source={require('../assets/google_logo.png')}
 
-    />
-   </TouchableOpacity>
-    <TouchableOpacity>
-      <Text style={styles.account}>Don't have an account? <Text style={styles.Registernow} onPress={() =>
-        navigation.navigate('Register')}>Register now</Text> 
-        </Text>
+      <TouchableOpacity onPress={()=>navigation.navigate('ForgotPassword')}>
+        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.bttn} onPress={handleSignIn}>
+        <Text style={styles.btext}>LOGIN</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.or}>OR</Text>
+      <Text style={styles.lw}>Login with</Text>
+
+      <TouchableOpacity>
+        <Image style={styles.logo} source={require('../assets/google_logo.png')} />
+      </TouchableOpacity>
+
+      <Text style={styles.account}>
+        Don't have an account?{' '}
+        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+          <Text style={styles.Registernow}>Register now</Text>
+        </TouchableOpacity>
+      </Text>
     </View>
   );
-}
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -112,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 40,
   },
-  inp1:{
+  inp1: {
     flex: 1,
     height: 40,
   },
@@ -137,15 +132,15 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   loginlogo: {
-    width:'100%',
+    width: '100%',
     height: 200,
-    marginTop:20,
+    marginTop: 20,
   },
   logo: {
-    marginLeft:150,
+    marginLeft: 150,
     width: 40,
     height: 40,
-    marginTop:20,
+    marginTop: 20,
   },
   bttn: {
     width: '50%',
@@ -154,11 +149,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 40,
     borderColor: '#ccc',
-   paddingHorizontal: 10,
+    paddingHorizontal: 10,
     marginBottom: 16,
-    marginLeft:80,
+    marginLeft: 80,
     borderRadius: 100,
-    paddingTop:10,
+    paddingTop: 10,
   },
   btext: {
     color: '#fff',
@@ -166,25 +161,25 @@ const styles = StyleSheet.create({
   },
   or: {
     textAlign: 'center',
-    marginTop:20,
+    marginTop: 20,
   },
   lw: {
     textAlign: 'center',
-    marginTop:20,
+    marginTop: 20,
   },
-   forgotPasswordText: {
+  forgotPasswordText: {
     color: '#007BFF',
-    marginLeft:200,
-     marginTop: 20,
-    marginBottom:10,
+    marginLeft: 200,
+    marginTop: 20,
+    marginBottom: 10,
   },
-   Registernow: {
-     color: '#007BFF',
+  Registernow: {
+    color: '#007BFF',
   },
   account: {
     marginTop: 20,
-    textAlign:'center',
-   }
+    textAlign: 'center',
+  },
 });
 
 export default Login;

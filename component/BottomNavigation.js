@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons, Ionicons } from 'react-native-vector-icons';
 import { Image } from 'react-native';
 import Reports from './Reports';
-import Carts from './Helps';
+import LoginNavigation from './LoginNavigation';
 import Cart from './Cart';
 import MainScreenNavigation from './MainScreenNavigation';
 
@@ -63,8 +63,8 @@ const BottomNavigationBar = () => {
             }}
           />
           <Tab.Screen
-            name="Carts"
-            component={Carts}
+            name="LoginNavigation"
+            component={LoginNavigation}
             options={{
               tabBarIcon: ({ focused }) => (
                 <Image

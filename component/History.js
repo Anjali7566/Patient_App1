@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const History = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Post History</Text>
+            <Text style={styles.title}>Past History</Text>
             <View style={styles.months}>
                 <Text style={styles.month}>July</Text>
                  <Icon name="filter-outline" size={30} color="#000" />

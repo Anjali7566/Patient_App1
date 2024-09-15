@@ -3,21 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import Login from './component/signIn';
-import Register from './component/signUp';
-import ForgotPassword from './component/ForgotPassword';
-import Verify from './component/verify';
-import Verifycode from './component/verify2';
-import AppointmentSlip from './component/appointmentSlip';
-import Review1 from './component/review1';
-import Map from './component/Map';
-import Reports from './component/Reports';
-import History from './component/History';
-import Cart from './component/Cart';
-import Profile from './component/Profile';
-import MainScreen from './component/MainScreen';
-import NotificationScreen from './component/NotificationScreen'
-import DoctorProfileScreen from './component/DoctorProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +27,6 @@ export default function App() {
       <Stack.Navigator initialRouteName="NotificationScreen" >
         <Stack.Screen name="DoctorProfile" component={DoctorProfileScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
