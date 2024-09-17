@@ -1,10 +1,10 @@
-  import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Modal, ScrollView, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Modal, ScrollView, Dimensions,Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
- 
-    const Help = () => {
-     const [modalVisible, setModalVisible] = useState(false);
+
+const Help= () => {
+  const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
 
   const handleLocationPinPress = () => {
@@ -47,14 +47,13 @@ import { useNavigation } from '@react-navigation/native';
           <TouchableOpacity style={styles.modalContent} onPress={closeModal}>
             <TextInput
               style={styles.searchBarModal}
-              placeholder="Enter The Pincode...."
+              placeholder="Enter Mobile No"
               placeholderTextColor="#000"
             />
-            <MaterialIcons name="chevron-right" size={38} color="#fff" style={styles.chevron} />
+             <Button title="Request to call" onPress={() => { }} style={styles.btn} />
           </TouchableOpacity>
         </View>
       </Modal>
-
       <View style={styles.searchBar}>
         <TextInput
           style={styles.searchInput}
@@ -254,35 +253,31 @@ const styles = StyleSheet.create({
   modalBackground: {
     backgroundColor: '#3C3C43CC',
     width: '100%',
-    height: 280,
+    height: 680,
     padding: 20,
     flexDirection: 'row',
     alignItems: 'center',
   },
   modalContent: {
     width: '100%',
-    height: 100,
-    margin: 25,
+    height: 150,
+    marginTop: 400,
+    marginBottom:20,
     borderRadius: 20,
     padding: 20,
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
   },
   searchBarModal: {
     flex: 1,
     padding: 10,
+    width: 300,
+    marginBottom:20,
     borderRadius: 20,
     backgroundColor: "#fff",
     borderWidth: 1,
-    marginRight: 10,
-  },
-  chevron: {
-    position: "absolute",
-    marginLeft: 242,
-    color: "white",
-    padding: 5,
-    borderRadius: 18,
-    backgroundColor: '#0A8E8A',
+    textAlign:'center',
   },
 });
+
 export default Help;
